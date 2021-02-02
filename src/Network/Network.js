@@ -34,6 +34,10 @@ export default class Network extends Tool {
     this._requests = {}
     this._render()
   }
+  snapshotRequests() {
+    console.log('requests: ', this._requests)
+    alert('snapshoted requests')
+  }
   requests() {
     const ret = []
     each(this._requests, (request) => {
@@ -129,7 +133,9 @@ export default class Network extends Tool {
         self._showDetail(data)
       })
       .on('click', '.eruda-clear-request', () => this.clear())
-      .on('click', '.eruda-back', () => this._hideDetail())
+      .on('click', '.eruda-snapshot-requests', () => this.snapshotRequests())
+      .on('click', '.eruda-back-btn', () => this._hideDetail())
+      .on('click', '.eruda-snapshot-btn', () => this._snapshotRequest())
       .on('click', '.eruda-http .eruda-response', () => {
         const data = this._detailData
         const resTxt = data.resTxt
@@ -191,6 +197,10 @@ export default class Network extends Tool {
   }
   _hideDetail() {
     this._$detail.hide()
+  }
+  _snapshotRequest() {
+    alert('snapshoted request')
+    console.log('request', this._detailData)
   }
   _appendTpl() {
     const $el = this._$el

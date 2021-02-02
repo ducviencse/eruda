@@ -115,7 +115,7 @@
         border-bottom: 1px solid var(--border);
       }
     }
-    .back {
+    .bottom-bar {
       position: absolute;
       left: 0;
       bottom: 0;
@@ -123,7 +123,7 @@
       width: 100%;
       border-top: 1px solid var(--border);
       background: var(--darker-background);
-      display: block;
+      display: flex;
       height: 40px;
       line-height: 40px;
       text-decoration: none;
@@ -133,6 +133,12 @@
       cursor: pointer;
       &:active {
         color: var(--select-foreground);
+      }
+      .snapshot-btn {
+        flex: 1;
+      }
+      .back-btn {
+        flex: 1;
       }
     }
   }
